@@ -1779,7 +1779,9 @@ inline basic_fbstring<E, T, A, S>& basic_fbstring<E, T, A, S>::append(
   auto desiredSize = size() + str.size();
 #endif
   append(str.data(), str.size());
+#ifndef NDEBUG
   assert(size() == desiredSize);
+#endif
   return *this;
 }
 
